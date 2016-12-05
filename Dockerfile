@@ -1,3 +1,5 @@
+## This file was forked from kevineye/docker-shairport-sync
+
 FROM resin/rpi-raspbian:jessie 
 MAINTAINER @protenhan
 
