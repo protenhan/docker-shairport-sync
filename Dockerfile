@@ -2,6 +2,7 @@ FROM resin/rpi-raspbian:jessie
 MAINTAINER @protenhan
 
 RUN apt-get update \
+ && apt-get upgrade \
  && apt-get install -y \
     libtool \
     build-essential \
