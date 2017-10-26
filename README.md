@@ -2,10 +2,11 @@
 
 This project was forked from kevineye/docker-shairport-sync and adapted to run on the Raspberry Pi.
 
+[![Build Status](https://travis-ci.org/protenhan/rpi-docker-shairport-sync.svg?branch=feat%2Fbump-shairport)](https://travis-ci.org/protenhan/rpi-docker-shairport-sync)
 [![Docker Stars](https://img.shields.io/docker/stars/protenhan/rpi-docker-shairport-sync.svg)](https://hub.docker.com/r/protenhan/rpi-docker-shairport-sync/)
 [![Docker Pulls](https://img.shields.io/docker/pulls/protenhan/rpi-docker-shairport-sync.svg)](https://hub.docker.com/r/protenhan/rpi-docker-shairport-sync/)
 [![ImageLayers](https://images.microbadger.com/badges/image/protenhan/rpi-docker-shairport-sync.svg)](https://microbadger.com/#/images/protenhan/rpi-docker-shairport-sync/)
-[![Build Status](https://travis-ci.org/protenhan/rpi-docker-shairport-sync.svg?branch=feat%2Fbump-shairport)](https://travis-ci.org/protenhan/rpi-docker-shairport-sync)
+
 
 ## Build
 
