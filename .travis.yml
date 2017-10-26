@@ -12,8 +12,7 @@ script:
 # push image
 - >
   if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then  docker login -u="$DOCKER_USER" -p="$DOCKER_PASS"
-    TAG=$(grep "SHAIRPORT_VERSION" Dockerfile | awk 'NF>1{print $NF}')
-    docker tag $DOCKER_USER/rpi-docker-shairport-sync $DOCKER_USER/rpi-docker-shairport-sync:$TAG
-    docker push $DOCKER_USER/rpi-docker-shairport-sync:$TAG
+    docker tag $DOCKER_USER/rpi-docker-shairport-sync $DOCKER_USER/rpi-docker-shairport-sync:$SHAIRPORT_VERSION
+    docker push $DOCKER_USER/rpi-docker-shairport-sync:$SHAIRPORT_VERSION
     docker push $DOCKER_USER/rpi-docker-shairport-sync
   fi
