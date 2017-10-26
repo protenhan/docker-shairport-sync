@@ -3,7 +3,7 @@
 FROM resin/rpi-raspbian:jessie 
 MAINTAINER @protenhan
 
-ENV SHAIRPORT_VERSION=$SHAIRPORT_VERSION
+ARG SHAIRPORT_VERSION=$SHAIRPORT_VERSION
 
 RUN apt-get update \
  && apt-get upgrade \
