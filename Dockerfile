@@ -3,6 +3,8 @@
 FROM resin/rpi-raspbian:jessie 
 MAINTAINER @protenhan
 
+ENV SHAIRPORT_VERSION=$SHAIRPORT_VERSION
+
 RUN apt-get update \
  && apt-get upgrade \
  && apt-get install -y \
@@ -24,7 +26,7 @@ RUN apt-get update \
 RUN cd /root \
  && git clone https://github.com/mikebrady/shairport-sync.git \
  && cd /root/shairport-sync \
- && git checkout -q tags/3.1.3 \
+ && git checkout -q tags/${SHAIRPORT_VERSION} \
  && autoreconf -i -f \
  && ./configure --with-alsa --with-pipe --with-avahi --with-ssl=openssl --with-soxr --with-metadata \
  && make \
