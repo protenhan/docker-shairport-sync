@@ -11,7 +11,7 @@ This project was forked from kevineye/docker-shairport-sync and adapted to run o
 ## Build
 
 ```
-docker build -t protenhan/shairport-sync:2.8.6 .
+docker build -t protenhan/shairport-sync:3.1.3 .
 ```
 
 ## Run
@@ -22,7 +22,7 @@ docker run -d \
     --net host \
     --device /dev/snd \
     -e AIRPLAY_NAME=Docker \
-    protenhan/shairport-sync:2.8.6
+    protenhan/shairport-sync:3.1.3
 ```
 
 ### Parameters
