@@ -26,7 +26,7 @@ RUN apt-get update \
 RUN cd /root \
  && git clone https://github.com/mikebrady/shairport-sync.git \
  && cd /root/shairport-sync \
- && git checkout -q tags/${SHAIRPORT_VERSION} \
+ && git checkout -q tags/$SHAIRPORT_VERSION \
  && autoreconf -i -f \
  && ./configure --with-alsa --with-pipe --with-avahi --with-ssl=openssl --with-soxr --with-metadata \
  && make \
