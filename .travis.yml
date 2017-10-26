@@ -8,7 +8,7 @@ script:
 # prepare qemu
 - docker run --rm --privileged multiarch/qemu-user-static:register --reset
 # build image
-- docker build -t protenhan/rpi-docker-shairport-sync .
+- docker build --build-arg SHAIRPORT_VERSION=3.1.3 -t protenhan/rpi-docker-shairport-sync .
 # push image
 - >
   if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then  docker login -u="$DOCKER_USER" -p="$DOCKER_PASS"
