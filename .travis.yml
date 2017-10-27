@@ -12,7 +12,7 @@ script:
 # push image
 - >
   if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then  docker login -u="$DOCKER_USER" -p="$DOCKER_PASS"
-    docker tag $DOCKER_USER/rpi-docker-shairport-sync $DOCKER_USER/rpi-docker-shairport-sync:$SHAIRPORT_VERSION
-    docker push $DOCKER_USER/rpi-docker-shairport-sync:$SHAIRPORT_VERSION
+    docker tag $DOCKER_USER/rpi-docker-shairport-sync $DOCKER_USER/rpi-docker-shairport-sync:$SHAIRPORT_VERSION-alpine
+    docker push $DOCKER_USER/rpi-docker-shairport-sync:$SHAIRPORT_VERSION-alpine
     docker push $DOCKER_USER/rpi-docker-shairport-sync
   fi
