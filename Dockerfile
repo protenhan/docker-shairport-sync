@@ -1,36 +1,67 @@
 ## This file was forked from kevineye/docker-shairport-sync
 
-FROM resin/rpi-raspbian:jessie 
+FROM hypriot/rpi-alpine 
 MAINTAINER @protenhan
 
 ARG SHAIRPORT_VERSION=$SHAIRPORT_VERSION
 
-RUN apt-get update \
- && apt-get upgrade \
- && apt-get install -y \
-    libtool \
-    build-essential \
-    git \
-    libdaemon-dev \
-    libasound2-dev \
-    libpopt-dev \
-    libconfig-dev \
-    avahi-daemon \
-    libavahi-client-dev \
-    autoconf \
-    automake \
-    libssl-dev \
-    libsoxr-dev \
- && rm -rf /var/lib/apt/lists/*
+RUN apk -U add \
+        git \
+        build-base \
+        autoconf \
+        automake \
+        libtool \
+        alsa-lib-dev \
+        libdaemon-dev \
+        popt-dev \
+        libressl-dev \
+        soxr-dev \
+        avahi-dev \
+        libconfig-dev \
 
-RUN cd /root \
+ && cd /root \
  && git clone https://github.com/mikebrady/shairport-sync.git \
- && cd /root/shairport-sync \
- && git checkout -q tags/$SHAIRPORT_VERSION \
+ && cd shairport-sync \
+
  && autoreconf -i -f \
- && ./configure --with-alsa --with-pipe --with-avahi --with-ssl=openssl --with-soxr --with-metadata \
+ && ./configure \
+        --with-alsa \
+        --with-pipe \
+        --with-avahi \
+        --with-ssl=openssl \
+        --with-soxr \
+        --with-metadata \
  && make \
- && make install
+ && make install \
+
+ && cd / \
+ && apk --purge del \
+        git \
+        build-base \
+        autoconf \
+        automake \
+        libtool \
+        alsa-lib-dev \
+        libdaemon-dev \
+        popt-dev \
+        libressl-dev \
+        soxr-dev \
+        avahi-dev \
+        libconfig-dev \
+ && apk add \
+        dbus \
+        alsa-lib \
+        libdaemon \
+        popt \
+        libressl \
+        soxr \
+        avahi \
+        libconfig \
+ && rm -rf \
+        /etc/ssl \
+        /var/cache/apk/* \
+        /lib/apk/db/* \
+        /root/shairport-sync
 
 COPY start.sh /start
 
