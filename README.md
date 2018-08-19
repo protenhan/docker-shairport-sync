@@ -32,6 +32,23 @@ docker run -d \
 * `-e AIRPLAY_NAME=Docker` set the AirPlay device name. Defaults to Docker
 * extra arguments will be passed to shairplay-sync (try `-- help`)
 
+## Run using docker-compose
+
+```
+version: '3'
+services:
+  airport:
+    image: protenhan/shairport-sync:3.1.3 # or use your a different image such as cloudgenius/shairport
+    restart: always
+    network_mode: host
+    devices: 
+      - /dev/snd
+    environment:
+      - AIRPLAY_NAME=pi
+      - PGID=1000
+      - PUID=1000
+```
+
 ## More examples
 
 Send output to a named pipe:
